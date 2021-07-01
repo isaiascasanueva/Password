@@ -13,5 +13,6 @@
     <color name="error">#e1464c</color>
     <color name="warning">#e6e160</color>
     <color name="acent"> #7756d3</color>
+    <color name="white_transparent">#8BFFFFFF</color>
 
 </resources>
