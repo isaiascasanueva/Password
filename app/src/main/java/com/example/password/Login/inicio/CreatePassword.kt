@@ -6,7 +6,7 @@ import android.widget.Toast
 import com.example.password.R
 import com.example.password.databinding.ActivityCreatepasswordBinding
 
-class createpassword : AppCompatActivity() {
+class CreatePassword : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

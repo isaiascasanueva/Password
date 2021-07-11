@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.password.DAO.usuario
+import com.example.password.DAO.Usuario
 
-@Database(entities = [usuario::class],version = 1)
+@Database(entities = [Usuario::class],version = 1)
 abstract class userDataBase: RoomDatabase() {
     abstract val user: userDao
 }

@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_security_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Login.inicio.createpassword"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".Login.inicio.CreatePassword"></activity>
+        <activity android:name=".MainActivity"  />
         <activity android:name=".Login.view_login" />
-        <activity android:name=".Login.inicio.splash_screem">
+        <activity android:name=".Login.inicio.SplashScreem">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

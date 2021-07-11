@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group >
+
+        <item
+            android:id="@+id/nav_Item_one"
+            android:icon="@drawable/abc_vector_test"
+            android:title="@string/item_1" />
+        <item
+            android:id="@+id/nav_Item_two"
+            android:icon="@drawable/abc_vector_test"
+            android:title="@string/item_2" />
+        <item
+            android:id="@+id/nav_Item_three"
+            android:icon="@drawable/abc_vector_test"
+            android:title="@string/item_3" />
+    </group>
+
+
+
+</menu>
+

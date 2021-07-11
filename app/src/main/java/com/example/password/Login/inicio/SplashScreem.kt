@@ -10,7 +10,7 @@ import com.example.password.MainActivity
 import com.example.password.databinding.ActivitySplashScreemBinding
 
 
-class splash_screem : AppCompatActivity() {
+class SplashScreem : AppCompatActivity() {
     private val DURATION_SPLASH =2000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +18,7 @@ class splash_screem : AppCompatActivity() {
         setContentView(binding.root)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, createpassword::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }, DURATION_SPLASH.toLong())

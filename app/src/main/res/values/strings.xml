@@ -9,4 +9,27 @@
     <string name="creeContra">Elija una contraseña</string>
     <string name="crear">Crear</string>
     <string name="todo">TODO</string>
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <string name="menu">menu</string>
+    <string name="search">search</string>
+    <string name="short_by_magnitude">short_by_magnitude</string>
+    <string name="item_1">Favoritos</string>
+    <string name="item_2">Tipos de servicios</string>
+    <string name="item_3">Tipos de servicios</string>
+    <string name="item_4">Item 4</string>
+    <string name="item_5">Item 5</string>
+    <string name="title_1">Title 1</string>
+    <string name="prueba">Prueba</string>
+    <string name="image_icon">Image icon</string>
+    <string name="icono_inicial">Icono inicial</string>
+    <string name="copy_pass">Copy pass</string>
+    <string name="view_pass">view pass</string>
+     <string name="copy_email">copy email</string>
+    <string name="_13isaias_live_com_mx">13isaias@live.com.mx</string>
+    <string name="usuario">Usuario</string>
+    <string name="insert_email">insert email</string>
+
+
 </resources>
