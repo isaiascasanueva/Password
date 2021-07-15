@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/servicio_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginStart="16dp"
+        android:padding="3dp"
+        android:text="@string/servicio"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/servicio_title"
+        android:layout_margin="1dp"
+        android:background="@android:color/black" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="384dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/servicio_title"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/style_text_box"
+        android:hint="Nombre"
+        android:paddingStart="16dp" />
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/edit_name"
+        android:layout_margin="1dp"
+        android:background="@android:color/black" />
+
+    <LinearLayout
+        android:id="@+id/service"
+        android:layout_width="384dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/edit_name"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/style_text_box"
+        >
+
+        <TextView
+            android:id="@+id/tipo_servicio"
+            android:layout_width="322dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/edit_name"
+            android:padding="10dp"
+            android:text="@string/tipo_de_servicio"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="47dp"
+            android:layout_height="match_parent"
+             android:src="@drawable/ic_baseline_expand_more" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvdatos"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@+id/service"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/style_text_box"
+        android:padding="16dp"
+        android:visibility="gone" />
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/lvdatos"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/black" />
+
+</RelativeLayout>

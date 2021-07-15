@@ -1,5 +1,6 @@
 package com.example.password
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,61 +18,71 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.password.DAO.NamePassword
 import com.example.password.DAO.Usuario
 import com.example.password.adapter.SectionAdapterPassword
+import com.example.password.crearCredencial.CreatePasswordItem
+import com.example.password.fragments.CreatePassword
+import com.example.password.fragments.HomeFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var drawer: DrawerLayout
-    private  lateinit var toggle: ActionBarDrawerToggle
+    //private lateinit var drawer: DrawerLayout
+    private lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        val binding1 = ActivityMainBinding.inflate(layoutInflater)
 
-        setContentView(binding.root)
-
+        setContentView(binding1.root)
+        /*Navegacion*/
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        drawer= findViewById(R.id.drawer_layout)
-        toggle = ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+
+        toggle = ActionBarDrawerToggle(
+            this,
+            drawer,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
 
         drawer.addDrawerListener(toggle)
 
+        toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
 
-
-
-        val recicler = findViewById<RecyclerView>(R.id.section_recycler)
-        /* se asigna un layout manager */
-        recicler.layoutManager = LinearLayoutManager(this)
-        /**/
-        val sectionAdapter =SectionAdapterPassword(this)
-
-        recicler.adapter= sectionAdapter
-
-        sectionAdapter.submitList(downloadFakePassword())
     }
 
-    private fun createuser() {
-
-    }
-
+    /*Navegacion*/
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-
-
-        when(item.itemId){
-            R.id.nav_Item_one -> Toast.makeText(this,"Item 1", Toast.LENGTH_SHORT).show()
-            R.id.nav_Item_two -> Toast.makeText(this,"Item 2", Toast.LENGTH_SHORT).show()
-            R.id.nav_Item_three -> Toast.makeText(this,"Item 3", Toast.LENGTH_SHORT).show()
+        when (item.itemId) {
+            R.id.nav_Item_one -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragmentContainer, CreatePassword())
+                    commit()
+                }
             }
+            R.id.nav_Item_two -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragmentContainer, HomeFragment())
+                    commit()
+                }
+            }
+            R.id.nav_Item_three -> {
+                val intent = Intent(this, CreatePasswordItem::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
 
         drawer.closeDrawer(GravityCompat.START)
         return true
     }
+
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
 
@@ -87,30 +98,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item)){
+        if (toggle.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menusearch, menu)
         return true
     }
 
-    private fun downloadFakePassword():List<NamePassword>{
 
-
-        val fantasy1 = Usuario(1,"raul_mau@gmail.com","fs322fdsdfsdf")
-        val password = listOf(fantasy1)
-
-
-        val fantasy = Usuario(2,"13isaias@live.com","sd336fsdffd32sdf")
-        val pass = listOf(fantasy)
-
-
-        val passwordEnd = NamePassword("Netflix",password)
-        val passwordEnd1 = NamePassword("Youtube",pass)
-        return listOf(passwordEnd,passwordEnd1)
-    }
 }

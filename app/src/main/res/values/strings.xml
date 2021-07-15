@@ -26,10 +26,21 @@
     <string name="icono_inicial">Icono inicial</string>
     <string name="copy_pass">Copy pass</string>
     <string name="view_pass">view pass</string>
-     <string name="copy_email">copy email</string>
+    <string name="copy_email">copy email</string>
     <string name="_13isaias_live_com_mx">13isaias@live.com.mx</string>
-    <string name="usuario">Usuario</string>
     <string name="insert_email">insert email</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="credencial">CREDENCIAL</string>
+
+    <string name="parametros_de_la_contrase_a">Parametros de la contraseña</string>
+    <string name="comentario">Comentario</string>
+    <string name="generar_nueva_contrase_a">Generar nueva contraseña</string>
+    <string name="usuario">Usuario</string>
+    <string name="tipo_de_servicio">Tipo de servicio</string>
 
 
+    <string name="tipo_de_servicio_mod" formatted="true">
+    Tipo de servicio: %s
+</string>
+    <string name="servicio">SERVICIO</string>
 </resources>

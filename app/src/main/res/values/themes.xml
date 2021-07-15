@@ -23,4 +23,8 @@
         <item name="android:windowBackground">@drawable/splash_screen</item>
         <item name="android:text">App Name</item>
     </style>
+
+    <style name="GreenText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#00FF00</item>
+    </style>
 </resources>

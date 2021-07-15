@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.password.DAO.NamePassword
-import com.example.password.DAO.Usuario
 import com.example.password.R
 
 class SectionAdapterPassword(val context: Context) :
