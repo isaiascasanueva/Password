@@ -43,4 +43,5 @@
     Tipo de servicio: %s
 </string>
     <string name="servicio">SERVICIO</string>
+    <string name="nombre">Nombre</string>
 </resources>

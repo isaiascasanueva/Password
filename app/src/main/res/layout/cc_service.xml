@@ -31,7 +31,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/style_text_box"
-        android:hint="Nombre"
+        android:hint="@string/nombre"
         android:paddingStart="16dp" />
 
 
