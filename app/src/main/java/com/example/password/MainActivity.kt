@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
@@ -21,6 +22,8 @@ import com.example.password.adapter.SectionAdapterPassword
 import com.example.password.crearCredencial.CreatePasswordItem
 import com.example.password.fragments.CreatePassword
 import com.example.password.fragments.HomeFragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -53,14 +56,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar?.setHomeButtonEnabled(true)
 
         val navigationView: NavigationView = findViewById(R.id.nav_view)
+
         navigationView.setNavigationItemSelectedListener(this)
+
+        val fab: View = findViewById(R.id.fab)
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+                .setAction("Action", null)
+                .show()
+        }
 
     }
 
     /*Navegacion*/
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        Toast.makeText(this, "sjdflksdfHola", Toast.LENGTH_LONG).show()
+
         when (item.itemId) {
             R.id.nav_Item_one -> {
+                Toast.makeText(this, "sjdflksdfHola", Toast.LENGTH_LONG).show()
                 supportFragmentManager.beginTransaction().apply {
                     replace(R.id.fragmentContainer, CreatePassword())
                     commit()
