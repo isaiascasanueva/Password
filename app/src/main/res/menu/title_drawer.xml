@@ -6,11 +6,11 @@
         <item
             android:id="@+id/nav_Item_one"
             android:icon="@drawable/ic_baseline_favorite_border_24"
-            android:title="@string/item_1" />
+            android:title="@string/crear_password_fracment" />
         <item
             android:id="@+id/nav_Item_two"
             android:icon="@drawable/ic_baseline_design_services_24"
-            android:title="@string/item_2" />
+            android:title="@string/home_fracment" />
         <item
             android:id="@+id/nav_Item_three"
             android:icon="@drawable/abc_vector_test"

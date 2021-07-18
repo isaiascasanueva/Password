@@ -44,4 +44,6 @@
 </string>
     <string name="servicio">SERVICIO</string>
     <string name="nombre">Nombre</string>
+    <string name="crear_password_fracment">Crear password Fracment</string>
+    <string name="home_fracment">Fracment principal</string>
 </resources>
