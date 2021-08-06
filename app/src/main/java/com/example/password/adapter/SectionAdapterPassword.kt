@@ -10,17 +10,18 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.password.DAO.NamePassword
+import com.example.password.DAO.getEntity.NameCredential
 import com.example.password.R
 
 class SectionAdapterPassword(val context: Context) :
-    ListAdapter<NamePassword, SectionAdapterPassword.ViewHolder>(DiffCallback) {
-    companion object DiffCallback : DiffUtil.ItemCallback<NamePassword>() {
-        override fun areItemsTheSame(oldItem: NamePassword, newItem: NamePassword): Boolean {
+    ListAdapter<NameCredential, SectionAdapterPassword.ViewHolder>(DiffCallback) {
+
+    companion object DiffCallback : DiffUtil.ItemCallback<NameCredential>() {
+        override fun areItemsTheSame(oldItem: NameCredential, newItem: NameCredential): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: NamePassword, newItem: NamePassword): Boolean {
+        override fun areContentsTheSame(oldItem: NameCredential, newItem: NameCredential): Boolean {
             return oldItem == newItem
         }
     }
@@ -49,7 +50,7 @@ class SectionAdapterPassword(val context: Context) :
         private val passRecycler = view.findViewById<RecyclerView>(R.id.pass_recycler)
 
 
-        fun bind(section: NamePassword) {
+        fun bind(section: NameCredential) {
             sectionNameText.text = section.nombre
 
             sectionNameText.setOnClickListener {
@@ -58,11 +59,13 @@ class SectionAdapterPassword(val context: Context) :
                         R.drawable.ic_baseline_keyboard_arrow_up_24, 0, 0, 0
                     )
                     passRecycler.visibility = View.VISIBLE
+
                 } else {
                     sectionNameText.setCompoundDrawablesWithIntrinsicBounds(
                         R.drawable.ic_baseline_expand_more, 0, 0, 0
                     )
                     passRecycler.visibility = View.GONE
+
                 }
 
                 section.expanded = !section.expanded
@@ -70,12 +73,14 @@ class SectionAdapterPassword(val context: Context) :
             }
             passRecycler.layoutManager = LinearLayoutManager(context)
 
-            val movieAdapter = ListAdapterPassword()
+            val passAdapter = ListAdapterPassword()
 
-            passRecycler.adapter = movieAdapter
+            passRecycler.adapter = passAdapter
 
-            movieAdapter.submitList(section.UsuarioList)
+            passAdapter.submitList(section.usuarioLists)
         }
+
+
     }
 
 }

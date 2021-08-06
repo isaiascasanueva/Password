@@ -7,21 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.password.DAO.NamePassword
-import com.example.password.DAO.Usuario
+import com.example.password.DAO.getEntity.NameCredential
+import com.example.password.DAO.getEntity.DetailCredential
 import com.example.password.R
 import com.example.password.adapter.SectionAdapterPassword
+import com.example.password.databinding.FragmentHomeFragmentBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class   HomeFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_home_fragment, container, false)
-        val recicler = view.findViewById<RecyclerView>(R.id.section_recycler)
+        val view =  FragmentHomeFragmentBinding.inflate(inflater, container, false)
+       // val view = inflater.inflate(R.layout.fragment_home_fragment, container, false)
+        val recicler = view.sectionRecycler
 
         recicler.layoutManager = LinearLayoutManager(requireActivity())
 
@@ -32,28 +35,30 @@ class   HomeFragment : Fragment() {
 
         adapter.submitList(downloadFakePassword())
 
-        return  view
+
+
+        return view.getRoot();
 
     }
 
-    private fun downloadFakePassword():List<NamePassword>{
+    private fun downloadFakePassword(): List<NameCredential> {
 
 
-        val fantasy1 = Usuario(1,"raul_mau@gmail.com","fs322fdsdfsdf")
-        val password = listOf(fantasy1)
+        val pass1 = DetailCredential(1, "raul_mau@gmail.com", "fs322fdsdfsdf")
+        val password = listOf(pass1)
 
 
-        val fantasy = Usuario(2,"13isaias@live.com","sd336fsdffd32sdf")
-        val pass = listOf(fantasy)
+        val pass2 = DetailCredential(2, "13isaias@live.com", "sd336fsdffd32sdf")
+        val password1 = listOf(pass2)
 
-        val fantasy2 = Usuario(2,"13isaias@live.com","sd336fsdffd32sdf")
-        val pass3 = listOf(fantasy2)
+        val pass3 = DetailCredential(2, "13isaias@live.com", "sd336fsdffd32sdf")
+        val password2 = listOf(pass3)
 
 
-        val passwordEnd = NamePassword("Netflix",password)
-        val passwordEnd1 = NamePassword("Youtube",pass)
-        val passwordEnd2 = NamePassword("Youtube",pass3)
-        return listOf(passwordEnd,passwordEnd1,passwordEnd2)
+        val passwordEnd = NameCredential("Netflix", password)
+        val passwordEnd1 = NameCredential("Youtube", password1)
+        val passwordEnd2 = NameCredential("Youtube", password2)
+        return listOf(passwordEnd, passwordEnd1, passwordEnd2)
     }
 
 }

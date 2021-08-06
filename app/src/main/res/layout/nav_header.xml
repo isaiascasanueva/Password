@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/nav_header"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="160dp"
     android:background="@color/black"
@@ -10,24 +8,24 @@
     android:focusable="true"
     android:foreground="?attr/selectableItemBackgroundBorderless"
     android:gravity="bottom"
+    android:orientation="vertical"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:id="@+id/navHeader"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:src="@mipmap/incioapp"
-        android:contentDescription="@string/image_icon" />
+<!--    <ImageView-->
+<!--        android:id="@+id/navHeader"-->
+<!--        android:layout_width="54dp"-->
+<!--        android:layout_height="54dp"-->
+<!--        android:contentDescription="@string/image_icon"-->
+<!--        android:src="@mipmap/incioapp" />-->
 
-    <TextView
-        android:id="@+id/navHeaderText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:text="@string/prueba"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-
+<!--    <TextView-->
+<!--        android:id="@+id/navHeaderText"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingTop="16dp"-->
+<!--        android:text="@string/prueba"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />-->
 
 
 </LinearLayout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -10,28 +9,27 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Login.view_login">
+        tools:context=".Login.`View Login`">
 
         <ImageView
             android:id="@+id/image1"
             android:layout_width="134dp"
             android:layout_height="148dp"
-            android:src="@mipmap/image_security"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            />
+            android:src="@mipmap/image_security" />
+
         <TextView
             android:id="@+id/title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/appname"
             android:layout_below="@+id/image1"
-            android:textSize="40dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            />
+            android:text="@string/appname"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/instructions"
@@ -39,21 +37,31 @@
             android:layout_height="39dp"
             android:layout_below="@+id/title1"
             android:layout_centerHorizontal="true"
-            android:text="@string/textInstructions"
-            android:textColor="@color/black"
-            android:shadowColor="@color/black"
             android:layout_marginTop="25dp"
+            android:shadowColor="@color/black"
+            android:text="@string/textInstructions"
             android:textAlignment="center"
-            />
+            android:textColor="@color/black"
+            android:textSize="@dimen/text" />
 
         <EditText
-            android:id="@+id/Contrasenia"
+            android:id="@+id/Usuario"
             android:layout_width="197dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/instructions"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp"
+            android:hint="@string/insert_email" />
+
+        <EditText
+            android:id="@+id/Contrasenia"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Usuario"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
             android:hint="@string/contrase_a" />
+
 
         <Button
             android:id="@+id/buttonDesbloq"
@@ -63,24 +71,26 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="104dp"
-            android:layout_marginTop="54dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="94dp"
             android:background="@drawable/style_text_box"
             android:shadowColor="@color/white_transparent"
-            android:text="@string/desbloquear" />
+            android:text="@string/desbloquear"
+            android:textSize="@dimen/title" />
 
         <TextView
             android:id="@+id/Registro"
             android:layout_width="175dp"
             android:layout_height="28dp"
-            android:layout_below="@+id/Contrasenia"
+            android:layout_below="@+id/buttonDesbloq"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="142dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="113dp"
             android:layout_marginBottom="231dp"
-            android:text="Registrar Contraseña"
+            android:text="@string/registrar_usuario"
             android:textAlignment="center"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/text" />
 
 
     </RelativeLayout>

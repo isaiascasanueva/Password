@@ -7,20 +7,20 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.password.DAO.Usuario
+import com.example.password.DAO.getEntity.DetailCredential
 import com.example.password.R
 
-class ListAdapterPassword:ListAdapter<Usuario, ListAdapterPassword.ViewHolder>(DiffCallback) {
+class ListAdapterPassword:ListAdapter<DetailCredential, ListAdapterPassword.ViewHolder>(DiffCallback) {
 
 
 
-    companion object DiffCallback : DiffUtil.ItemCallback<Usuario>() {
+    companion object DiffCallback : DiffUtil.ItemCallback<DetailCredential>() {
 
-        override fun areItemsTheSame(oldItem: Usuario, newItem: Usuario): Boolean {
+        override fun areItemsTheSame(oldItem: DetailCredential, newItem: DetailCredential): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: Usuario, newItem: Usuario): Boolean {
+        override fun areContentsTheSame(oldItem: DetailCredential, newItem: DetailCredential): Boolean {
             return oldItem == newItem
         }
     }
@@ -44,9 +44,9 @@ class ListAdapterPassword:ListAdapter<Usuario, ListAdapterPassword.ViewHolder>(D
         private val passwordText = view.findViewById<TextView>(R.id.password)
 
 
-        fun bind(usuario: Usuario) {
-            nameText.text = usuario.nombre
-            passwordText.text = usuario.Contrasenia
+        fun bind(detailCredential: DetailCredential) {
+            nameText.text = detailCredential.nombre
+            passwordText.text = detailCredential.Contrasenia
         }
     }
 }

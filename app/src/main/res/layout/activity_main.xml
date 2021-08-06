@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
     <include
         layout="@layout/app_bar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="match_parent" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
         android:name="com.example.password.fragments.HomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
         tools:layout="@layout/fragment_home_fragment" />
 
     <!--    Modificar el layout separando el drawer e importandolo-->
@@ -27,12 +26,10 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        android:visibility="invisible"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/title_drawer" />
+        app:menu="@menu/title_drawer">
 
-
-    <include layout="@layout/lr_floating_action_button" />
+    </com.google.android.material.navigation.NavigationView>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
