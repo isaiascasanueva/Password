@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.password.DAO.Entitys.Profile
-import com.example.password.DAO.MainViewModel
+import com.example.password.ViewModel.MainViewModel
 import com.example.password.Login.ViewLogin
 import com.example.password.MainActivity
 import com.example.password.databinding.ActivityCreatepasswordBinding

@@ -1,13 +1,18 @@
-package com.example.password.DAO
+package com.example.password.ViewModel
 
 import android.app.Application
+import android.content.Intent
 import android.util.Log
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.password.DAO.Entitys.Credential
 import com.example.password.DAO.Entitys.Profile
+import com.example.password.DAO.MainRepository
 import com.example.password.DAO.dataBase.getDatabBase
+import com.example.password.MainActivity
 import kotlinx.coroutines.launch
 
 private val TAG = MainViewModel::class.java.simpleName
@@ -56,6 +61,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
             try {
                 _insertprofile.value = repository.validateProfile(usuario, contrasenia)
+             //  val g =  _insertprofile.value!!.id_profile
+
+                //repository.insertCredential(Credential("netflix", g,g,1))
 
                 if (_insertprofile.value == null) {
                     _result.value = 1
@@ -70,5 +78,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
 
     }
+
 
 }

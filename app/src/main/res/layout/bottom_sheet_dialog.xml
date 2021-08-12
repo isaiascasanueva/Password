@@ -1,146 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottomSheet"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_margin="3dp"
-    android:layout_weight="1"
-    android:background="@drawable/button_sheet_backgound"
-    android:orientation="vertical"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    android:padding="16dp">
+    <data>
+
+    </data>
 
     <LinearLayout
-        android:id="@+id/generatePassBottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="horizontal">
+        android:id="@+id/bottomSheet"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="3dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_sheet_backgound"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Generar Contraseña"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
-
-        <CheckBox
-
-            android:id="@+id/checkbox_generate_pass"
-            android:layout_width="79dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="90dp"
-            android:layout_marginEnd="3dp"
-            android:gravity="center"
-            android:onClick="onCheckboxClicked" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/edit_Pass_Bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Editar Parametros    "
-            android:textColor="@color/black"
-            android:textSize="22sp" />
-
-        <CheckBox
-
-            android:id="@+id/checkbox_edit"
-            android:layout_width="79dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="90dp"
-            android:layout_marginEnd="3dp"
-            android:gravity="center"
-            android:onClick="onCheckboxClicked" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/character_Pass_Bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Caracteres                 "
-            android:textColor="@color/black"
-            android:textSize="22sp" />
-
-        <CheckBox
-
-            android:id="@+id/checkbox_character"
-            android:layout_width="79dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="90dp"
-            android:layout_marginEnd="3dp"
-            android:gravity="center"
-            android:onClick="onCheckboxClicked" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:orientation="vertical">
-
-        <TextView
+        <LinearLayout
+            android:id="@+id/generatePassBottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="!#$%?!"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Generar Contraseña"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
 
-    <LinearLayout
+            <CheckBox
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:orientation="vertical">
+                android:id="@+id/checkbox_generate_pass"
+                android:layout_width="79dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:layout_marginEnd="3dp"
+                android:gravity="center"
+                android:onClick="onCheckboxClicked" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Longitud"
-            android:textColor="@color/black"
-            android:textSize="22dp" />
+        </LinearLayout>
 
-
-        <SeekBar
-            android:id="@+id/seekBar"
+        <LinearLayout
+            android:id="@+id/edit_Pass_Bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar Parametros    "
+                android:textColor="@color/black"
+                android:textSize="22sp" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+            <CheckBox
 
-        <Button
+                android:id="@+id/checkbox_edit"
+                android:layout_width="79dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:layout_marginEnd="3dp"
+                android:gravity="center"
+                android:onClick="onCheckboxClicked" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/character_Pass_Bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Caracteres                 "
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <CheckBox
+
+                android:id="@+id/checkbox_character"
+                android:layout_width="79dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="90dp"
+                android:layout_marginEnd="3dp"
+                android:gravity="center"
+                android:onClick="onCheckboxClicked" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/teal_700"
-            android:text="Guardar" />
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="!#$%?!"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Longitud"
+                android:textColor="@color/black"
+                android:textSize="22dp" />
+
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/teal_700"
+                android:text="Guardar" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
-
-
-</LinearLayout>
+</layout>

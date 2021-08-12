@@ -2,6 +2,7 @@ package com.example.password.DAO
 
 import com.example.basededatospruebas.DataBase.relations.CredentialWithDetailCredential
 import com.example.basededatospruebas.DataBase.relations.ProfilewithCredentials
+import com.example.password.DAO.Entitys.Credential
 import com.example.password.DAO.Entitys.Profile
 import com.example.password.DAO.dataBase.AppDataBase
 import kotlinx.coroutines.Dispatchers
@@ -44,7 +45,9 @@ class MainRepository(private val database: AppDataBase) {
     }
 
 
-
-
-
+    suspend fun insertCredential(credential:Credential){
+        withContext(Dispatchers.IO){
+            database.dtbase.insertCredential(credential)
+        }
+    }
 }

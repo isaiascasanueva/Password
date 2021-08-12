@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.password.DAO.getEntity.NameCredential
@@ -35,6 +36,16 @@ class HomeFragment : Fragment() {
 
         adapter.submitList(downloadFakePassword())
 
+
+
+
+
+
+       // val first: String by lazy { arguments?.getString("holaaaa") ?: "default" }
+
+//        val bundle = arguments
+//        val message = bundle!!.getString("mText")
+//
 
 
         return view.getRoot();

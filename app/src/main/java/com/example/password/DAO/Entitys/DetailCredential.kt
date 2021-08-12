@@ -8,9 +8,9 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity
 data class DetailCredential(
-    @PrimaryKey(autoGenerate = false) val id_detail_profile: Int,
+    @PrimaryKey(autoGenerate = true) val id_detail_profile: Int = 0,
     val type_service: String,
-    val name_user:String,
-    val password:String,
-    val comentario:String
-): Parcelable
+    val name_user: String,
+    val password: String,
+    val comentario: String
+) : Parcelable

@@ -10,7 +10,7 @@ import com.example.password.databinding.ActivitySplashScreemBinding
 
 
 class SplashScreem : AppCompatActivity() {
-    private val DURATION_SPLASH = 1000
+    private val DURATION_SPLASH = 10
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivitySplashScreemBinding.inflate(layoutInflater)
