@@ -8,10 +8,11 @@ import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-import com.example.password.MainActivity
 import com.example.password.R
 import com.example.password.ViewModel.FragtmentsViewModel
+import com.example.password.databinding.AppBarBinding
 import com.example.password.databinding.BottomSheetDialogBinding
 import com.example.password.databinding.FragmentCreatePasswordBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -32,6 +33,11 @@ class CreatePassword : Fragment(R.layout.fragment_create_password) {
         val binding = FragmentCreatePasswordBinding.inflate(inflater, container, false)
 
         val prueba = BottomSheetDialogBinding.inflate(inflater, container, false)
+
+        val appbar = AppBarBinding.inflate(inflater, container, false)
+
+
+
 
         model = ViewModelProvider(
             this
@@ -67,16 +73,30 @@ class CreatePassword : Fragment(R.layout.fragment_create_password) {
 
 
         save.setOnClickListener {
-
-
-            insertData(binding, lista, value2!!.toInt())
-
+           insertData(binding, lista, value2!!.toInt())
+            openGetUser(appbar)
         }
 
         return binding.root
 
     }
 
+     private fun openGetUser(appBarBinding: AppBarBinding) {
+
+
+
+         val nuevoFragmento: Fragment = HomeFragment()
+         val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
+         transaction.replace(R.id.fragmentContainer, nuevoFragmento)
+         transaction.addToBackStack(null)
+
+
+         // Commit a la transacción
+
+         // Commit a la transacción
+         transaction.commit()
+
+    }
 
     private fun insertData(binding: FragmentCreatePasswordBinding, lista: View, value2:Int) {
         val g: String = binding.credentialLayout.UserCredential.text.toString()

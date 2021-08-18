@@ -10,6 +10,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
 import com.example.password.databinding.ActivityMainBinding
 import com.example.password.fragments.CreatePassword
 import com.example.password.fragments.HomeFragment
@@ -30,7 +31,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding1 = ActivityMainBinding.inflate(layoutInflater)
-        val fragInfo = CreatePassword()
         setContentView(binding1.root)
         /*Navegacion*/
         val toolbar: Toolbar = findViewById(R.id.toolbar)
@@ -59,23 +59,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         navigationView.setNavigationItemSelectedListener(this)
 
-        val fab: View = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            openCreatePass(view, fab)
-
-        }
+//        val fab: View = findViewById(R.id.fab)
+//        fab.setOnClickListener { view ->
+//            openCreatePass(view, fab)
+//
+//        }
+        val fragment = HomeFragment()
+            openGetUser(fragment)
 
     }
 
-
-    private fun openCreatePass(view: View, fab: View) {
-        Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-            .setAction("Action", null)
-            .show()
-        fab.visibility = View.GONE
-
-        openGetUser()
-    }
+//
+//    private fun openCreatePass(view: View, fab: View) {
+//        Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+//            .setAction("Action", null)
+//            .show()
+//        fab.visibility = View.GONE
+//        val fragment =  CreatePassword()
+//        openGetUser(fragment)
+//    }
 
 
     /*Navegacion*/
@@ -83,7 +85,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when (item.itemId) {
             R.id.nav_Item_one -> {
-                openGetUser()
+                val fragment = HomeFragment()
+                openGetUser(fragment)
             }
             R.id.nav_Item_two -> {
                 val fab: View = findViewById(R.id.fab)
@@ -133,13 +136,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
 
-    private fun openGetUser() {
+    private fun openGetUser(fragment: Fragment) {
         val use = intent.extras!!
 
 
         val resultado = use.getInt(idprofile)
         val r = resultado.toString()
-        val fragment = CreatePassword()
         val bundle = Bundle()
         bundle.putInt("Numero", resultado)
         fragment.arguments = bundle

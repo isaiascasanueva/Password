@@ -14,10 +14,15 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
-        android:name="com.example.password.fragments.HomeFragment"
-        android:layout_width="match_parent"
+         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_home_fragment" />
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/fragmentContainer"-->
+<!--        android:name="com.example.password.fragments.HomeFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        tools:layout="@layout/fragment_home_fragment" />-->
 
     <!--    Modificar el layout separando el drawer e importandolo-->
     <com.google.android.material.navigation.NavigationView

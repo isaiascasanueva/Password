@@ -18,5 +18,16 @@
             android:layout_height="wrap_content"
             android:id="@+id/section_recycler" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:visibility="visible"
+            android:src="@drawable/ic_baseline_more_vert_24" />
+
+
     </FrameLayout>
+
 </layout>

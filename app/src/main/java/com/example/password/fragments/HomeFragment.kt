@@ -1,19 +1,19 @@
 package com.example.password.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.password.DAO.getEntity.NameCredential
 import com.example.password.DAO.getEntity.DetailCredential
+import com.example.password.DAO.getEntity.NameCredential
 import com.example.password.R
 import com.example.password.adapter.SectionAdapterPassword
 import com.example.password.databinding.FragmentHomeFragmentBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 
 
 class HomeFragment : Fragment() {
@@ -36,7 +36,11 @@ class HomeFragment : Fragment() {
 
         adapter.submitList(downloadFakePassword())
 
+        val fab: View = view.fab
+        fab.setOnClickListener { view ->
+            openCreatePass(view, fab)
 
+        }
 
 
 
@@ -48,8 +52,22 @@ class HomeFragment : Fragment() {
 //
 
 
+
+
+
         return view.getRoot();
 
+    }
+
+
+
+    private fun openCreatePass(view: View, fab: View) {
+        Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+            .setAction("Action", null)
+            .show()
+        fab.visibility = View.GONE
+        val fragment =  CreatePassword()
+       openGetUser(fragment)
     }
 
     private fun downloadFakePassword(): List<NameCredential> {
@@ -71,5 +89,37 @@ class HomeFragment : Fragment() {
         val passwordEnd2 = NameCredential("Youtube", password2)
         return listOf(passwordEnd, passwordEnd1, passwordEnd2)
     }
+//Pasar de un fragment a otro --> El fab lo movi a home fragment
+    private fun openGetUser(fragment: Fragment) {
 
+
+//        val resultado = use.getInt(MainActivity.idprofile)
+//        val r = resultado.toString()
+//        val bundle = Bundle()
+//        bundle.putInt("Numero", resultado)
+//        fragment.arguments = bundle
+//
+//        supportFragmentManager.beginTransaction().apply {
+//
+//            replace(R.id.fragmentContainer, fragment)
+//            commit()
+//
+//        }
+//
+//    val nuevoFragmento: Fragment = CreatePassword()
+    var value2 = arguments?.getInt("Numero", 0)
+    //Toast.makeText(context, value2.toString(), Toast.LENGTH_SHORT).show()
+    val bundle = Bundle()
+    bundle.putInt("Numero", value2!!.toInt())
+    fragment.arguments =  bundle
+
+    val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
+    transaction.replace(R.id.fragmentContainer, fragment)
+    transaction.addToBackStack(null)
+
+    transaction.commit()
+
+
+
+    }
 }
