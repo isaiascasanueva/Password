@@ -12,32 +12,30 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.example.password.databinding.ActivityMainBinding
-import com.example.password.fragments.CreatePassword
 import com.example.password.fragments.HomeFragment
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
 
-    private lateinit var toggle: ActionBarDrawerToggle
+        private lateinit var toggle: ActionBarDrawerToggle
 
-    companion object {
-        const val idprofile = "profile"
-    }
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding1 = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding1.root)
-        /*Navegacion*/
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        companion object {
+            const val idprofile = "profile"
+        }
 
 
-        toggle = ActionBarDrawerToggle(
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            val binding1 = ActivityMainBinding.inflate(layoutInflater)
+            setContentView(binding1.root)
+            /*Navegacion*/
+            val toolbar: Toolbar = findViewById(R.id.toolbar)
+            setSupportActionBar(toolbar)
+
+
+            toggle = ActionBarDrawerToggle(
             this,
             drawer,
             toolbar,
@@ -59,11 +57,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         navigationView.setNavigationItemSelectedListener(this)
 
-//        val fab: View = findViewById(R.id.fab)
-//        fab.setOnClickListener { view ->
-//            openCreatePass(view, fab)
-//
-//        }
+
         val fragment = HomeFragment()
             openGetUser(fragment)
 
@@ -139,11 +133,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun openGetUser(fragment: Fragment) {
         val use = intent.extras!!
 
-
         val resultado = use.getInt(idprofile)
+        val resultado2 = use.getInt(idprofile)
         val r = resultado.toString()
         val bundle = Bundle()
         bundle.putInt("Numero", resultado)
+        bundle.putInt("Numero2",resultado2)
+
         fragment.arguments = bundle
 
         supportFragmentManager.beginTransaction().apply {

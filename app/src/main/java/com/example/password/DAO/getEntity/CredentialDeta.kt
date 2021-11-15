@@ -5,4 +5,4 @@ import kotlinx.android.parcel.Parcelize
 
 
 @Parcelize
-data class DetailCredential(val id: Int, val nombre: String, val Contrasenia: String) : Parcelable
+data class CredentialDeta(val id: Int, val nombre: String, val Contrasenia: String) : Parcelable

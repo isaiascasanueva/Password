@@ -10,11 +10,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import com.example.password.DAO.Entitys.Credential
+import com.example.password.DAO.Entitys.DetailCredential
+import com.example.password.DAO.getEntity.CredentialDeta
+import com.example.password.DAO.getEntity.NameCredential
 import com.example.password.R
-import com.example.password.ViewModel.FragtmentsViewModel
-import com.example.password.databinding.AppBarBinding
-import com.example.password.databinding.BottomSheetDialogBinding
-import com.example.password.databinding.FragmentCreatePasswordBinding
+import com.example.password.ViewModel.FragmentsViewModel
+import com.example.password.databinding.*
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
@@ -22,8 +24,7 @@ class CreatePassword : Fragment(R.layout.fragment_create_password) {
 
     private var tipService: String = ""
 
-    private lateinit var model: FragtmentsViewModel
-
+    private lateinit var anAModel:FragmentsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,17 +37,17 @@ class CreatePassword : Fragment(R.layout.fragment_create_password) {
 
         val appbar = AppBarBinding.inflate(inflater, container, false)
 
+        val createCredential = CcCredencialBinding.inflate(inflater, container, false)
+
+        val view =  FragmentHomeFragmentBinding.inflate(inflater, container, false)
 
 
-
-        model = ViewModelProvider(
+        anAModel = ViewModelProvider(
             this
-        ).get(FragtmentsViewModel::class.java)
+        ).get(FragmentsViewModel::class.java)
 
 
         var value2 = arguments?.getInt("Numero", 0)
-        Toast.makeText(context, value2.toString(), Toast.LENGTH_SHORT).show()
-
 
 
         val lista = binding.serviceLayout.lvdatos
@@ -73,44 +74,75 @@ class CreatePassword : Fragment(R.layout.fragment_create_password) {
 
 
         save.setOnClickListener {
-           insertData(binding, lista, value2!!.toInt())
-            openGetUser(appbar)
+            insertData(binding, lista, value2!!.toInt())
+            openGetUser(appbar, value2)
         }
 
         return binding.root
 
     }
 
-     private fun openGetUser(appBarBinding: AppBarBinding) {
+    private fun openGetUser(appBarBinding: AppBarBinding, value2: Int) {
 
+        //mandar las credenciales
 
+        val nuevoFragmento: Fragment = HomeFragment()
 
-         val nuevoFragmento: Fragment = HomeFragment()
-         val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
-         transaction.replace(R.id.fragmentContainer, nuevoFragmento)
-         transaction.addToBackStack(null)
+        val bundle = Bundle()
+        bundle.putInt("Numero", value2!!.toInt())
+        nuevoFragmento.arguments = bundle
+        val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentContainer, nuevoFragmento)
 
+        // Commit a la transacción
 
-         // Commit a la transacción
-
-         // Commit a la transacción
-         transaction.commit()
+        // Commit a la transacción
+        transaction.remove(this).commit()
 
     }
 
-    private fun insertData(binding: FragmentCreatePasswordBinding, lista: View, value2:Int) {
-        val g: String = binding.credentialLayout.UserCredential.text.toString()
+    private fun insertData(binding: FragmentCreatePasswordBinding, lista: View, value2: Int) {
+        //Poner restricciones para que no se se mande el formulario si los principales campos no van
+        //Obtener los
+        val usuario: String = binding.credentialLayout.UserCredential.text.toString()
 
         createlisexpandible(binding, lista)
         //Table of credential
         val nameCredential = binding.serviceLayout.nameCredential.text.toString()
+
         tipService//tipo de servicio
+        /**/
         val password = binding.credentialLayout.passwordEnd.text.toString()
         val commentary = binding.credentialLayout.cometaryPassCreate.text.toString()
 
+        Toast.makeText(requireContext(), usuario, Toast.LENGTH_LONG).show()
 
-        Toast.makeText(requireContext(), g, Toast.LENGTH_SHORT).show()
-        model.insercredential(nameCredential, value2, password, commentary)
+        anAModel.insertDetailCredential(DetailCredential(tipService, usuario, password, commentary))
+
+
+        anAModel.insertprofile.observe(requireActivity(), {
+
+            anAModel.insertCedential(Credential(nameCredential, value2, it.get(0).id_detail_profile))
+        })
+
+        anAModel.getLastProfileCredential.observe(requireActivity(), {
+
+            for (credencial in it) {
+
+                val pass: List<CredentialDeta> = listOf(
+                    CredentialDeta(
+                        credencial.credential.id_credential,
+                        credencial.credential.name_credential,
+                        credencial.detailCredential.password
+                    )
+                )
+
+                NameCredential(credencial.credential.name_credential, pass)
+                //    Toast.makeText(requireContext(),   credencial.credential.id_credential.toString(), Toast.LENGTH_LONG).show()
+            }
+
+
+        })
 
 
     }
@@ -171,3 +203,4 @@ class CreatePassword : Fragment(R.layout.fragment_create_password) {
 
 
 }
+

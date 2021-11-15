@@ -1,18 +1,14 @@
 package com.example.password.ViewModel
 
 import android.app.Application
-import android.content.Intent
 import android.util.Log
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.password.DAO.Entitys.Credential
 import com.example.password.DAO.Entitys.Profile
 import com.example.password.DAO.MainRepository
 import com.example.password.DAO.dataBase.getDatabBase
-import com.example.password.MainActivity
 import kotlinx.coroutines.launch
 
 private val TAG = MainViewModel::class.java.simpleName
@@ -41,11 +37,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var _insertprofile = MutableLiveData<Profile>()
     val insertprofile: LiveData<Profile>
         get() = _insertprofile
-
-
-    init {
-
-    }
 
 
     fun insertProf(profile: Profile) {

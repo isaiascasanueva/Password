@@ -79,7 +79,7 @@ class CreateUser : AppCompatActivity() {
 
         Toast.makeText(applicationContext, "No valido", Toast.LENGTH_LONG).show()
 
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, ViewLogin::class.java)
         startActivity(intent)
         finish()
 

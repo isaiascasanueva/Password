@@ -1,6 +1,7 @@
 package com.example.password.DAO.dataBase
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import com.example.basededatospruebas.DataBase.relations.CredentialWithDetailCredential
 import com.example.basededatospruebas.DataBase.relations.ProfilewithCredentials
@@ -32,9 +33,21 @@ interface CredentialDao {
     @Query("Select * from profile where id_profile= :profile")
     fun getProfile(profile: Int): MutableList<Profile>
 
+    /*Obtener el ultimo id insertado*/
+    @Transaction
+    @Query("SELECT * FROM DetailCredential ORDER BY id_detail_profile DESC LIMIT 1")
+    fun getLastByIdDetailCredential(): MutableList<DetailCredential>
+
+
     @Transaction
     @Query("Select * from credential where id_profile= :credential")
     fun getCredentialWithDetailCredential(credential: Int): MutableList<CredentialWithDetailCredential>
+
+
+    @Transaction
+    @Query("Select * from credential ")
+    fun getCredentialWithDetailCredentialProbar(): MutableList<CredentialWithDetailCredential>
+
 
     @Transaction
     @Query("Select * from Profile where email= :email AND password= :password")
